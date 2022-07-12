@@ -1,0 +1,18 @@
+version: '4.5'
+services:
+
+  db:
+    container_name: postgres
+    image: postgres:14
+    env_file:
+      - .env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - app-data-db:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    
+
+volumes:
+  app-data-db:
